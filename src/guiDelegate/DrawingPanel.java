@@ -1,8 +1,4 @@
-<<<<<<< HEAD
  package guiDelegate;
-=======
-package guiDelegate;
->>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,13 +16,9 @@ class DrawingPanel extends JPanel implements PropertyChangeListener {
     private Shape selectedShape;
     private Point startPoint;
     private ShapeType currentShapeType; // Enum for different shape types
-<<<<<<< HEAD
     private static final Color HIGHLIGHT_COLOR = new Color(255,0,0,128); // semi-transparent red
     private Color lineColor;
     private float lineWidth;
-=======
-    private static final Color HIGHLIGHT_COLOR = new Color(255,0,0,128); // semi red
->>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
 
     public DrawingPanel(ShapeModel model) {
         this.model = model;
@@ -44,10 +36,7 @@ class DrawingPanel extends JPanel implements PropertyChangeListener {
                     selectedShape = createShape(startPoint, startPoint);
                 } else {
                     selectedShape = findShapeAtPoint(e.getX(), e.getY());
-<<<<<<< HEAD
                     repaint(); // Repaint to update the highlight of the selected shape
-=======
->>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
                 }
             }
 
@@ -58,10 +47,7 @@ class DrawingPanel extends JPanel implements PropertyChangeListener {
                 }
                 selectedShape = null;
                 startPoint = null;
-<<<<<<< HEAD
                 repaint(); // Repaint to remove the highlight of the selected shape
-=======
->>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
             }
         });
 
@@ -77,7 +63,6 @@ class DrawingPanel extends JPanel implements PropertyChangeListener {
     }
 
     private Shape createShape(Point start, Point end) {
-<<<<<<< HEAD
         // Ensure currentShapeType is set to something valid
         if (currentShapeType != null) {
             switch (currentShapeType) {
@@ -96,17 +81,6 @@ class DrawingPanel extends JPanel implements PropertyChangeListener {
             }
         }
         return null; // Return null if no shape type is selected
-=======
-        switch (currentShapeType) {
-            case LINE:
-                return new LineShape(start.x, start.y, end.x, end.y);
-            case RECTANGLE:
-                return new RectangleShape(start.x, start.y, end.x, end.y);
-            // Add cases for other shapes
-            default:
-                return null;
-        }
->>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
     }
 
     private void updateCreatingShape(Point currentPoint) {
@@ -119,7 +93,6 @@ class DrawingPanel extends JPanel implements PropertyChangeListener {
     }
 
     private Shape findShapeAtPoint(int x, int y) {
-<<<<<<< HEAD
         // Iterate through all shapes in reverse order
         for (int i = model.getShapes().size() - 1; i >= 0; i--) {
             Shape shape = model.getShapes().get(i);
@@ -130,13 +103,6 @@ class DrawingPanel extends JPanel implements PropertyChangeListener {
         return null;
     }
 
-=======
-        return model.getShapes().stream()
-            .filter(shape -> shape.isClicked(x, y))
-            .findFirst()
-            .orElse(null);
-    }
->>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         repaint();
@@ -159,12 +125,9 @@ class DrawingPanel extends JPanel implements PropertyChangeListener {
         g.setStroke(new BasicStroke(3));
         g.draw(shape.getBoundary().getBounds2D());
     }
-<<<<<<< HEAD
 
     // Other methods (getSelectedShapeFillColor, updateSelectedShapeFill, etc.) remain unchanged
 
-=======
->>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
     
     public Color getSelectedShapeFillColor() {
         if (selectedShape != null) {
@@ -176,12 +139,8 @@ class DrawingPanel extends JPanel implements PropertyChangeListener {
 
     public void updateSelectedShapeFill(Color fillColor, boolean fill) {
         if (selectedShape != null) {
-<<<<<<< HEAD
             selectedShape.setFillColor(fillColor);
             selectedShape.setFillState(fill);
-=======
-            selectedShape.setFillColorAndFill(fillColor, fill);
->>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
             repaint();
         }
     }
@@ -210,7 +169,6 @@ class DrawingPanel extends JPanel implements PropertyChangeListener {
         this.currentShapeType = shapeType;
         this.selectedShape = null; // Optionally reset the selected shape
     }
-<<<<<<< HEAD
     public void onLineButtonPressed() {
         // Set the current shape type
         this.currentShapeType = ShapeType.LINE;
@@ -240,8 +198,6 @@ class DrawingPanel extends JPanel implements PropertyChangeListener {
         this.lineWidth = lineWidth;
     }
     
-=======
->>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
 
     
 }
