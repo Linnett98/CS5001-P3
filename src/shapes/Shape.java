@@ -11,11 +11,18 @@ import java.io.Serializable;
 public abstract class Shape implements Serializable {
     protected java.awt.Shape awtShape;
     protected int x1, y1, x2, y2;
+<<<<<<< HEAD
+=======
+    protected int width, height;
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
     protected Color borderColor, fillColor;
     protected boolean fill;
     protected float borderWidth;
     protected double rotationAngle;
+<<<<<<< HEAD
     protected int width, height;
+=======
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
 
     /**
      * Constructor for Shape.
@@ -69,13 +76,23 @@ public abstract class Shape implements Serializable {
      * @param dy the change in y-coordinate
      */
     public void drag(int dx, int dy) {
+<<<<<<< HEAD
+=======
+        // Adjust the position of the shape by dx and dy
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
         x1 += dx;
         y1 += dy;
         x2 += dx;
         y2 += dy;
+<<<<<<< HEAD
         constructShape();
     }
 
+=======
+        constructShape(); // Reconstruct the shape at the new position
+    }
+    
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
     /**
      * Resize a shape.
      * @param x the x-coordinate of the corner to resize
@@ -114,11 +131,16 @@ public abstract class Shape implements Serializable {
         y2 = y1 + height;
     }
 
+<<<<<<< HEAD
     // Getters and setters for properties
+=======
+    // Getters and setters for properties like color, fill, borderWidth, etc.
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
     public Color getBorderColor() {
         return borderColor;
     }
 
+<<<<<<< HEAD
     public void setBorderColor(Color color) {
         this.borderColor = color;
     }
@@ -139,6 +161,29 @@ public abstract class Shape implements Serializable {
         this.fill = fill;
     }
 
+=======
+    public void setBorderColor(Color borderColor) {
+        this.borderColor = borderColor;
+    }
+
+    /**
+     * Sets both the fill color and the fill state.
+     * @param fillColor the color to fill the shape with
+     * @param fill whether the shape should be filled
+     */
+    public void setFillColorAndFill(Color fillColor, boolean fill) {
+        this.fillColor = fillColor;
+        this.fill = fill;
+    }
+ public void setFill (boolean fill){
+        this.fill =fill;
+  }
+public void setColour(Color fillColour){
+    this.fillColor=fillColor;
+}
+
+    
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
     public float getBorderWidth() {
         return borderWidth;
     }
@@ -154,8 +199,18 @@ public abstract class Shape implements Serializable {
     public void setRotationAngle(double rotationAngle) {
         this.rotationAngle = rotationAngle;
     }
+<<<<<<< HEAD
 
     public java.awt.Shape getBoundary() {
         return awtShape;
     }
+=======
+    public Color getFillColor() {
+        return fillColor;
+    }
+    public java.awt.Shape getBoundary() {
+        return awtShape;
+    }
+    
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
 }

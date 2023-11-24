@@ -100,6 +100,7 @@ public class DrawingApplication extends JFrame {
         JButton triangleButton = new JButton("Triangle");
         triangleButton.addActionListener(e -> drawingPanel.setCurrentShapeType(ShapeType.TRIANGLE));
     
+<<<<<<< HEAD
         // Color button for border color
         JButton borderColorButton = new JButton("Border Color");
         borderColorButton.addActionListener(e -> {
@@ -123,10 +124,19 @@ public class DrawingApplication extends JFrame {
         JButton fillColorButton = new JButton("Fill Color");
         fillColorButton.addActionListener(e -> {
             Color chosenColor = JColorChooser.showDialog(drawingPanel, "Choose a fill color", Color.BLACK);
+=======
+        // Color and fill buttons
+        JButton colorButton = new JButton("Color");
+        JCheckBox fillCheckBox = new JCheckBox("Fill"); // Declaration moved here
+
+       colorButton.addActionListener(e -> {
+            Color chosenColor = JColorChooser.showDialog(drawingPanel, "Choose a color", Color.BLACK);
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
             if (chosenColor != null) {
                 drawingPanel.updateSelectedShapeFill(chosenColor, fillCheckBox.isSelected());
             }
         });
+<<<<<<< HEAD
         JCheckBox fillCheckBox = new JCheckBox("Fill"); 
         fillCheckBox.addActionListener(e -> {
             Color currentColor = drawingPanel.getSelectedShapeFillColor();
@@ -134,12 +144,25 @@ public class DrawingApplication extends JFrame {
         });
     
         // Undo/redo buttons
+=======
+
+        fillCheckBox.addActionListener(e -> {
+            Color currentColor = drawingPanel.getSelectedShapeFillColor(); // Use the correct method name
+            drawingPanel.updateSelectedShapeFill(currentColor, fillCheckBox.isSelected());
+        });
+    
+        // Undo/redo
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
         JButton undoButton = new JButton("Undo");
         undoButton.addActionListener(e -> model.undo());
         JButton redoButton = new JButton("Redo");
         redoButton.addActionListener(e -> model.redo());
     
+<<<<<<< HEAD
         // Rotation button
+=======
+        // Rotation
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
         JButton rotateButton = new JButton("Rotate");
         rotateButton.addActionListener(e -> rotateShape(drawingPanel));
     
@@ -149,16 +172,25 @@ public class DrawingApplication extends JFrame {
         toolBar.add(ellipseButton);
         toolBar.add(triangleButton);
         toolBar.addSeparator();
+<<<<<<< HEAD
         toolBar.add(borderColorButton);
         toolBar.add(borderWidthSlider);
         toolBar.addSeparator();
         toolBar.add(fillColorButton);
+=======
+        toolBar.add(colorButton);
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
         toolBar.add(fillCheckBox);
         toolBar.addSeparator();
         toolBar.add(undoButton);
         toolBar.add(redoButton);
         toolBar.addSeparator();
         toolBar.add(rotateButton);
+<<<<<<< HEAD
+=======
+        toolBar.add(fillCheckBox);
+    
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
     
         return toolBar;
     }

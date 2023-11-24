@@ -51,6 +51,7 @@ public class RectangleShape extends Shape {
     public void setFill(boolean fill) {
         this.fill = fill;
     }
+<<<<<<< HEAD
     @Override
     public boolean isClicked(int x, int y) {
         return ((Rectangle2D) awtShape).contains(x, y);
@@ -58,3 +59,8 @@ public class RectangleShape extends Shape {
 }
     
     // Add any additional methods needed for the RectangleShape here
+=======
+
+    // Add any additional methods needed for the RectangleShape here
+}
+>>>>>>> 540718bb2f4bcd27f7ba991e6ece0041cdcc12fa
